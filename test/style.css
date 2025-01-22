@@ -1,0 +1,59 @@
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  
+  --font-family: 'Inter', sans-serif;
+  --font-big: 8vh;
+
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}
+
+
+#site-title {
+  font-size: 8vw;
+  line-height: 0.9em;
+}
+
+
+.accordion {
+  .item {
+    line-height: 4em;
+    button {
+      font-size: var(--font-big);
+      .icon {
+
+      }
+    }
+    .content {
+
+    }
+    &.active {
+      .icon {
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+#menu {
+  position: absolute;
+  top: 100vh;
+  .item {
+    width: 100%;
+  }
+}
+
+#menu-toggle {
+  display: block;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 1000;
+  font-size: 8em;
+}
