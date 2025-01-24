@@ -44,7 +44,7 @@ const setupMenu = () => {
   tl.to("#site-title", speed, {y: "-=200%"});
   tl.to("#menu-toggle", speed, { y: 0, rotation: 45}, `-=${speed}`);
   tl.to(menuItems, {
-    y: "-=600",
+    y: `-=${menuItems.length*140}`,
     stagger: 0.1,
   }, `-=${speed}`);
 
