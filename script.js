@@ -1,31 +1,68 @@
-document.querySelector('img').addEventListener('click', function() {
-  this.style.transition = 'transform 1s';
-  this.style.transform = 'scale(2.2) translateX(18vw)'; 
-  
-  const gif = document.querySelector('#gif');
-  gif.style.visibility = 'visible'; 
-  gif.style.opacity = '1'; 
-  gif.style.transition = 'transform 0.6s, opacity 0.6s, visibility 0s'; 
-  gif.style.transitionDelay = '1.2s'; 
-  gif.style.transform = 'translateY(70px)'; 
 
-  const img = document.querySelector('#plus_hp'); 
-    img.style.visibility = 'visible';
-    img.style.opacity = '1';
-    img.style.transition = 'transform 0.6s, opacity 0.6s, visibility 0s';
-    img.style.transitionDelay = '1.2s';
-    img.style.transform = 'translateY(-200px)';
-});
+const setupTitle = () => {
+  const letter = document.querySelector("#site-title .letter");
+  const letters = ["a","e","i","o","u"];
+  let counter = 0;
+  setInterval(() => {
+    letter.textContent = letters[counter];
+    counter++;
+    if (counter >= letters.length)counter = 0;
+  }, 700);
+}
 
-document.querySelector('#plus_hp').addEventListener('click', function() {
-  this.style.transition = 'transform 1s';
-  this.style.transform = 'translate(0px, -98vh) rotate(45deg) scale(0.8)';
+let buttons = [];
+let contents = [];
+let currentButton = null;
+const setupAccordion = () => {
+  const accordion = document.querySelector(".accordion");
+  buttons = accordion.querySelectorAll("button");
+  contents = accordion.querySelectorAll(".content");
 
-  const gif = document.querySelector('#gif');
-  gif.style.transition = 'transform 1s';
-  gif.style.transform = 'translate(0px, -100vh)';
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach(button => button.parentElement.classList.remove("active"));
+      contents.forEach(content => content.style.maxHeight = '0');
+      if(currentButton==button) {
+        currentButton = null;
+        return;
+      }
+      button.parentElement.classList.add("active");
+      const content = button.parentElement.querySelector(".content");
+      content.style.maxHeight = content.scrollHeight + 'px';
+      currentButton = button;
+    });
+  });
+}
 
-  const img = document.querySelector('img');
-  img.style.transition = 'transform 1s';
-  img.style.transform = 'translate(100vw, 0px) scale(2.2)';
+
+const setupMenu = () => {
+  const menuToggle = document.querySelector("#menu-toggle");
+  const menuItems = document.querySelectorAll("#menu .item");
+  gsap.set(menuToggle, {y: window.innerHeight-200});
+  const speed = 0.7;
+  const tl = gsap.timeline({ paused: true });
+  tl.to("#site-title", speed, { y: "-=200%", ease: "power1.inOut" });
+  tl.to("#logo-screen", speed, { y: "-=100%", ease: "power1.inOut" }, `-=${speed}`);
+  tl.to("#menu-toggle", speed, { y: -20, rotation: 45}, `-=${speed / 3}`);
+  tl.to(menuItems, {
+    y: "-=700",
+    stagger: 0.2,
+  }, `-=${speed / 2}`);
+
+  menuToggle.addEventListener("click", () => {
+    console.log(tl.progress());
+    if(menuToggle.classList.contains("active")) {
+      tl.reverse();
+    } else {
+      tl.play();
+    }
+    menuToggle.classList.toggle("active");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+ console.log("DOMContentLoaded");
+ setupTitle();
+ setupAccordion();
+ setupMenu();
 });
