@@ -12,6 +12,8 @@ body {
   font-family: var(--font-family);
   color: var(--secondary-color);
   background-color: var(--primary-color);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -75,4 +77,5 @@ body {
 #menu-opener {
   padding-bottom: 0.16em;
   font-weight: 700;
+  padding-right: 30px;
 }
