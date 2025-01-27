@@ -56,7 +56,7 @@ const setupMenu = () => {
     if (menuToggle.classList.contains("active")) {
       tl.reverse();
     } else {
-      tl.play();
+      tl.play(speed / 3);
     }
     menuToggle.classList.toggle("active");
     overflowHidden();
