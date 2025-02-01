@@ -52,12 +52,14 @@ const setupMenu = () => {
   );
 
   menuToggle.addEventListener("click", () => {
-    console.log(tl.progress());
+    if (tl.isActive()) return;
+    
     if (menuToggle.classList.contains("active")) {
       tl.reverse();
     } else {
-      tl.play(speed / 3);
+      tl.play();
     }
+
     menuToggle.classList.toggle("active");
     overflowHidden();
   });
