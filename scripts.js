@@ -37,16 +37,16 @@ const setupMenu = () => {
   const menuToggle = document.querySelector("#menu-toggle");
   const menuItems = document.querySelectorAll("#menu .item");
   gsap.set(menuToggle, { y: window.innerHeight - 200 });
-  const speed = 0.7;
+  const speed = 0.5;
   const tl = gsap.timeline({ paused: true });
   tl.to("#site-title", speed, { y: "-=200%", ease: "power1.inOut" });
-  tl.to("#logo-screen", speed, { y: "-=100%", ease: "power1.inOut" }, `-=${speed}`);
-  tl.to("#menu-toggle", speed, { y: -20, rotation: 45 }, `-=${speed / 3}`);
+  tl.to("#logo-screen", speed, { x: "100%", ease: "power1.inOut" }, `-=${speed}`);
+  tl.to("#menu-toggle", speed, { y: "-5vw", rotation: 45 }, `-=${speed / 3}`);
   tl.to(
     menuItems,
     {
-      y: "-=700",
-      stagger: 0.2,
+      y: "-90vh",
+      stagger: 0.06,
     },
     `-=${speed / 2}`
   );
