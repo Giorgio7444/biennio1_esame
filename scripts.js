@@ -5,6 +5,7 @@ const setupTitle = () => {
   setInterval(() => {
     letter.textContent = letters[counter];
     counter++;
+
     if (counter >= letters.length) counter = 0;
   }, 700);
 };
@@ -29,8 +30,18 @@ const setupAccordion = () => {
       const content = button.parentElement.querySelector(".content");
       content.style.maxHeight = content.scrollHeight + "px";
       currentButton = button;
-    });
+
+       /*
+       const elementTop = button.getBoundingClientRect().top + window.scrollY;
+        setTimeout(() => {
+        window.scrollTo({
+        top: elementTop,
+        behavior: "smooth",
+      });
+    }, 300);
+    */
   });
+});
 };
 
 const setupMenu = () => {
@@ -41,11 +52,11 @@ const setupMenu = () => {
   const tl = gsap.timeline({ paused: true });
   tl.to("#site-title", speed, { y: "-=200%", ease: "power1.inOut" });
   tl.to("#logo-screen", speed, { x: "100%", ease: "power1.inOut" }, `-=${speed}`);
-  tl.to("#menu-toggle", speed, { y: "-5vw", rotation: 45 }, `-=${speed / 3}`);
+  tl.to("#menu-toggle", speed, { y: "-7vh", rotation: 45 }, `-=${speed / 3}`);
   tl.to(
     menuItems,
     {
-      y: "-90vh",
+      y: "-87vh",
       stagger: 0.06,
     },
     `-=${speed / 2}`
@@ -97,3 +108,4 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 });
+

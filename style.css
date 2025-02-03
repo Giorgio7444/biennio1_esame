@@ -26,11 +26,11 @@ body {
 }
 
 #logo-screen {
-  position: absolute;
-  top: -250px;
-  left: 40%;
+  position:fixed;
+  justify-content: center;
+  left: 40vw;
+  height: 70v;
   color: var(--secondary-color);
-  transform: scale(0.65);
 }
 
 .accordion {
@@ -79,7 +79,7 @@ body {
   top: 30px;
   left: 30px;
   z-index: 1000;
-  font-size: 8vw;
+  font-size: 12vh;
   font-weight: 700;
 }
 
@@ -97,7 +97,7 @@ body {
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: var(--primary-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,4 +129,14 @@ body {
 
 #highlight {
 color: var(--tertiary-color);
+}
+
+.contacts {
+  white-space: pre-line;
+  margin-bottom: 0.5em;
+  margin-right: 2vw;
+  font-weight: 700;
+  margin-left: 2vw;
+  font-size: 1.8vw;
+  line-height: 1.2em;
 }
