@@ -15,33 +15,34 @@ let contents = [];
 let currentButton = null;
 const setupAccordion = () => {
   const accordion = document.querySelector(".accordion");
-  buttons = accordion.querySelectorAll("button");
-  contents = accordion.querySelectorAll(".content");
+  const buttons = accordion.querySelectorAll("button");
+  const contents = accordion.querySelectorAll(".content");
+  let currentButton = null;
 
-  buttons.forEach((button, index) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      buttons.forEach((button) => button.parentElement.classList.remove("active"));
+      buttons.forEach((btn) => btn.parentElement.classList.remove("active"));
       contents.forEach((content) => (content.style.maxHeight = "0"));
-      if (currentButton == button) {
+
+      if (currentButton === button) {
         currentButton = null;
         return;
       }
+
       button.parentElement.classList.add("active");
       const content = button.parentElement.querySelector(".content");
       content.style.maxHeight = content.scrollHeight + "px";
       currentButton = button;
 
-       /*
-       const elementTop = button.getBoundingClientRect().top + window.scrollY;
-        setTimeout(() => {
+      setTimeout(() => {
+        const elementTop = button.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-        top: elementTop,
-        behavior: "smooth",
-      });
-    }, 300);
-    */
+          top: elementTop,
+          behavior: "smooth",
+        });
+      }, 400);
+    });
   });
-});
 };
 
 const setupMenu = () => {
