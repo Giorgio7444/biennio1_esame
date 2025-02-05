@@ -36,11 +36,12 @@ const setupAccordion = () => {
 
       setTimeout(() => {
         const elementTop = button.getBoundingClientRect().top + window.scrollY;
+        const extraOffset = window.innerWidth * 0.01;
         window.scrollTo({
-          top: elementTop,
+          top: elementTop - extraOffset,
           behavior: "smooth",
         });
-      }, 400);
+      }, 450);      
     });
   });
 };
