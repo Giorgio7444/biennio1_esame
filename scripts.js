@@ -111,3 +111,4 @@ var swiper = new Swiper(".mySwiper", {
 
 });
 
+console.log("Progetto d'esame di Pulli Giorgio per il corso di Linguaggi Multimediali 1 tenuto dal prof Antonio Molinari - Digital Design and Communication, LABA Brescia - A.A. 2024/2025");
