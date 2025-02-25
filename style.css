@@ -1,12 +1,9 @@
-
 :root {
   --primary-color: #050200;
   --secondary-color: #f2f2ee;
   --tertiary-color: #fac800;
   --font-family: 'inter', sans-serif;
   --font-big:8vw;
-  
-
 }
 
 body {
@@ -18,7 +15,6 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-
 
 #site-title {
   font-size: 6vw;
@@ -64,7 +60,6 @@ body {
     }
   }
 }
-
 
 #menu {
   position: absolute;
